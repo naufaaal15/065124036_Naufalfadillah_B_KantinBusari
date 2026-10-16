@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/currency_format.dart';
+
 // Data dummy untuk item dalam keranjang
 class CartItem {
   final String nama;
@@ -61,7 +63,7 @@ class _OrderPageState extends State<OrderPage> {
                           child: ListTile(
                             leading: const Icon(Icons.fastfood, color: Colors.deepOrange),
                             title: Text(item.nama, style: const TextStyle(fontWeight: FontWeight.bold)),
-                            subtitle: Text('Rp ${item.harga} x ${item.qty}'),
+                            subtitle: Text('Rp ${formatHarga(item.harga)} x ${item.qty}'),
                             trailing: IconButton(
                               icon: const Icon(Icons.delete, color: Colors.red),
                               onPressed: () => _hapusItem(index),
@@ -78,7 +80,7 @@ class _OrderPageState extends State<OrderPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text('Total: Rp $_total', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.deepOrange)),
+                Text('Total: Rp ${formatHarga(_total)}', style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.deepOrange)),
                 const SizedBox(height: 12),
                 ElevatedButton.icon(
                   onPressed: _cart.isEmpty ? null : () {

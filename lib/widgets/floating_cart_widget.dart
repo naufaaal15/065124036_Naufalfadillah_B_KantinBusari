@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/currency_format.dart';
+
 // Widget 4: Keranjang Ringkas (Bottom Bar / Floating Cart)
 // Menampilkan jumlah item, total harga, dan tombol Pesan Sekarang.
 class FloatingCartWidget extends StatelessWidget {
@@ -31,7 +33,7 @@ class FloatingCartWidget extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text('$itemCount item', style: const TextStyle(fontWeight: FontWeight.bold)),
-              Text('Rp $totalHarga', style: const TextStyle(color: Colors.deepOrange, fontWeight: FontWeight.bold, fontSize: 16)),
+              Text('Rp ${formatHarga(totalHarga)}', style: const TextStyle(color: Colors.deepOrange, fontWeight: FontWeight.bold, fontSize: 16)),
             ],
           ),
           const Spacer(),

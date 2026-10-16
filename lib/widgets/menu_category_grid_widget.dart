@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../utils/currency_format.dart';
+
 // Data dummy untuk menu (tanpa gambar)
 class MenuItem {
   final String nama;
@@ -134,7 +136,7 @@ class _MenuCard extends StatelessWidget {
               children: [
                 Text(item.nama, style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 14), maxLines: 1, overflow: TextOverflow.ellipsis),
                 const SizedBox(height: 4),
-                Text('Rp ${item.harga}', style: const TextStyle(color: Colors.deepOrange, fontWeight: FontWeight.bold)),
+                Text('Rp ${formatHarga(item.harga)}', style: const TextStyle(color: Colors.deepOrange, fontWeight: FontWeight.bold)),
                 const SizedBox(height: 8),
                 SizedBox(
                   width: double.infinity,
